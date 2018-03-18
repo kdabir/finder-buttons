@@ -22,4 +22,4 @@ on notify_app(listOfFilesOrDirs)
     activate
     open listOfFilesOrDirs
   end tell
-end subl
+end notify_app
