@@ -19,7 +19,7 @@ end open
 
 -- open files/dir in app
 on notify_app(listOfFilesOrDirs)
-  tell application "SourceTree-Beta"
+  tell application "SourceTree"
     activate
     open listOfFilesOrDirs
   end tell
