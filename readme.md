@@ -1,5 +1,8 @@
 # MacOS Finder Buttons
 
+![image](https://user-images.githubusercontent.com/735240/64318162-0dec0280-cfd7-11e9-9a20-4c182aa7c811.png)
+
+
 Buttons to open current finder selection in following apps:
 
 1. Open in Sublime Text
@@ -8,6 +11,7 @@ Buttons to open current finder selection in following apps:
 
 3. Open in SourceTree
 
+4. Open in IDEA (IntelliJ IDEA)
 
 #### Installing
 ![install](https://user-images.githubusercontent.com/735240/36919049-f5c33b0e-1e81-11e8-9c70-424d2e9ff753.gif)
