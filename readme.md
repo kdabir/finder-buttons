@@ -13,7 +13,12 @@ Buttons to open current finder selection in following apps:
 
 4. Open in IDEA (IntelliJ IDEA)
 
+
+
 #### Installing
+
+Git clone / Download the repo and command+drag the icons to Finder Buttons area:
+
 ![install](https://user-images.githubusercontent.com/735240/36919049-f5c33b0e-1e81-11e8-9c70-424d2e9ff753.gif)
 
 #### Using
