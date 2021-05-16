@@ -27,3 +27,20 @@ Git clone / Download the repo and command+drag the icons to Finder Buttons area:
 
 #### Uninstalling
 ![uninstall](https://user-images.githubusercontent.com/735240/36919048-f3b2a232-1e81-11e8-99a7-09641a96e6ad.gif)
+
+
+
+
+## Building Locally
+
+Add to `.git/config`
+
+```
+[diff "scpt"]
+  textconv = osadecompile
+  binary=true
+```
+
+```
+$ make all
+```
