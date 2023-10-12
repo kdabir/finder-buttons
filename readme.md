@@ -29,6 +29,9 @@ Git clone / Download the repo and command+drag the icons to Finder Buttons area:
 ![uninstall](https://user-images.githubusercontent.com/735240/36919048-f3b2a232-1e81-11e8-99a7-09641a96e6ad.gif)
 
 
+## Allow Access
+
+<img width="372" alt="image" src="https://github.com/kdabir/finder-buttons/assets/735240/51b8146b-ea9b-4039-9bdd-4f3b469b61fd">
 
 
 ## Building Locally
