@@ -1,33 +1,52 @@
-setup:
-	cat .gitconfig >> .git/config
-
-iterm:
-	@osacompile -o "OpenInITerm.app" src/open-in-iterm.applescript
-	@cp res/iTerm.icns OpenInITerm.app/Contents/Resources/droplet.icns
+# Build all droplets (add a line per app to support)
+APPS = vscode cursor sublime idea terminal iterm sourcetree zed webstorm codex kiro antigravity
+all: $(APPS)
 
 sublime:
-	@osacompile -o "OpenInSublimeText.app" src/open-in-sublime-text.applescript
-	@cp res/sublime-text.icns OpenInSublimeText.app/Contents/Resources/droplet.icns
+	@./scripts/build.sh "Sublime Text" "Open in SublimeText"
 
-sourcetree:
-	@osacompile -o "OpenInSourceTree.app" src/open-in-sourcetree.applescript
-	@cp res/sourcetree.icns OpenInSourceTree.app/Contents/Resources/droplet.icns
+zed:
+	@./scripts/build.sh "Zed" "Open in Zed"
 
 idea:
-	@osacompile -o "OpenInIDEA.app" src/open-in-idea.applescript
-	@cp res/idea.icns OpenInIDEA.app/Contents/Resources/droplet.icns
+	@./scripts/build.sh "IntelliJ IDEA" "Open in IDEA" 
+
+webstorm:
+	@./scripts/build.sh "WebStorm" "Open in WebStorm"
 
 vscode:
-	@osacompile -o "OpenInVSCode.app" src/open-in-VS-Code.applescript
-	@cp res/vsCode.icns OpenInVSCode.app/Contents/Resources/droplet.icns
+	@./scripts/build.sh "Visual Studio Code" "Open in VSCode"
 
+cursor:
+	@./scripts/build.sh "Cursor" "Open in Cursor"
 
 terminal:
-	@osacompile -o "OpenInTerminal.app" src/open-in-terminal.applescript
-	@cp res/terminal.icns OpenInTerminal.app/Contents/Resources/droplet.icns
+	@./scripts/build.sh "Terminal" "Open in Terminal" "file-parent"
 
+iterm:
+	@./scripts/build.sh "iTerm" "Open in iTerm" "file-parent"
 
-all: idea sublime sourcetree iterm vscode terminal
+sourcetree:
+	@./scripts/build.sh "SourceTree" "Open in SourceTree" "folder-only"
+
+codex:
+	@./scripts/build.sh "Codex" "Open in Codex"
+
+kiro:
+	@./scripts/build.sh "Kiro" "Open in Kiro"
+
+antigravity:
+	@./scripts/build.sh "Antigravity" "Open in Antigravity"
+
+# Usage: make extract-icon APP="IntelliJ IDEA" or APP="/path/to/App.app"
+ifeq (extract-icon,$(firstword $(MAKECMDGOALS)))
+  EXTRACT_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+  $(eval $(EXTRACT_ARGS):;@:)
+endif
+extract-icon:
+	@./scripts/extract-icon.sh "$(if $(APP),$(APP),$(EXTRACT_ARGS))"
 
 clean:
-	@rm -rf *.app
+	rm -rf dist/*.app build/
+
+.PHONY: all clean extract-icon $(APPS)

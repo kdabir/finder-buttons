@@ -1,0 +1,32 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Make scripts executable
+      run: chmod +x scripts/*.sh
+
+    - name: Build apps
+      run: make all
+
+    - name: Create ZIP archive
+      run: |
+        cd dist
+        zip -r ../finder-buttons.zip *.app
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: finder-buttons.zip
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
