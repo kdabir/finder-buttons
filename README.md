@@ -20,7 +20,15 @@ Buttons to open current finder selection (file/folder) in following apps:
 
 #### Installing
 
-Download the release zip and command+drag the icons to Finder Buttons area:
+Download the release zip, unzip it, then drag the `.app` icons to the Finder toolbar.
+
+**If macOS says the app is "damaged"** (common when downloading unsigned apps): open Terminal and run this from the folder where you unzipped, to clear the download quarantine:
+
+```bash
+xattr -cr *.app
+```
+
+Then command+drag the icons to the Finder toolbar.
 
 ![install](https://user-images.githubusercontent.com/735240/36919049-f5c33b0e-1e81-11e8-9c70-424d2e9ff753.gif)
 

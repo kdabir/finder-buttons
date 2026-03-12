@@ -27,7 +27,7 @@ iterm:
 	@./scripts/build.sh "iTerm" "Open in iTerm" "file-parent"
 
 sourcetree:
-	@./scripts/build.sh "SourceTree" "Open in SourceTree" "folder-only"
+	@./scripts/build.sh "Sourcetree" "Open in Sourcetree" "folder-only"
 
 codex:
 	@./scripts/build.sh "Codex" "Open in Codex"
